@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" async></script>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaled AI</title>
 
-<h2>ChatKit Agent</h2>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f5f5f5;
+        font-family: Arial, sans-serif;
+      }
+      #chat {
+        height: 100vh;
+      }
+    </style>
+  </head>
 
-<div id="my-chat" style="height:600px;width:350px;border:1px solid #ddd"></div>
+  <body>
+    <div id="chat"></div>
 
-<script>
-async function getClientSecret() {
-  const res = await fetch("https://https://kaled-ai-production.up.railway.app", {
-    method: "POST"
-  });
-  const data = await res.json();
-  return data.client_secret;
-}
+    <script type="module">
+      import ChatKit from "https://cdn.jsdelivr.net/npm/@openai/chatkit@latest/dist/chatkit.js";
 
-document.getElementById("my-chat").setOptions({
-  api: { getClientSecret }
-});
-</script>
-
-</body>
+      new ChatKit.Chat({
+        workflowId: "wf_691c0e5d6fa8819082aa3d4a29abf2600ac3b41e3639c4c7",
+        element: document.getElementById("chat"),
+      });
+    </script>
+  </body>
 </html>
