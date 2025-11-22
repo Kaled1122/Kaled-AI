@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" async></script>
+</head>
+<body>
+
+<h2>ChatKit Agent</h2>
+
+<div id="my-chat" style="height:600px;width:350px;border:1px solid #ddd"></div>
+
+<script>
+async function getClientSecret() {
+  const res = await fetch("https://YOUR_BACKEND_URL/chatkit/session", {
+    method: "POST"
+  });
+  const data = await res.json();
+  return data.client_secret;
+}
+
+document.getElementById("my-chat").setOptions({
+  api: { getClientSecret }
+});
+</script>
+
+</body>
+</html>
