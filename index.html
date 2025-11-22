@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaled AI Assistant</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        font-family: Arial, sans-serif;
+      }
+      #chat {
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="chat"></div>
+
+    <script type="module">
+      import ChatKit from "https://cdn.jsdelivr.net/npm/@openai/chatkit@latest/dist/chatkit.js";
+
+      new ChatKit.Chat({
+        workflowId: "wf_691c0e5d6fa8819082aa3d4a29abf2600ac3b41e3639c4c7",
+        element: document.getElementById("chat")
+      });
+    </script>
+  </body>
+</html>
